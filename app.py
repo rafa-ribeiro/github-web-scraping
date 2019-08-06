@@ -1,10 +1,13 @@
-from webscraping.data.files import open_file
+from webscraping.data.files import open_file, get_repositories
+from webscraping.data.webcrawler import execute_web_crawler
 
 
 def main():
     print("Running app.py...")
-    repositories = open_file("/home/rafael/python-projects/vivadecora/webscraping/resources/repositories.txt")
-    print("Conteúdo do arquivo:\n%s" % repositories)
+    repositories = get_repositories("/home/rafael/python-projects/vivadecora/webscraping/resources/repositories.txt")
+    print("Repositories size = %s" % len(repositories))
+    for repo in repositories:
+        url_repository = execute_web_crawler(repo)
     pass
 
 
