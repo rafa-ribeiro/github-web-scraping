@@ -46,13 +46,13 @@ def get_files(node_parent, html):
             span_tag = td_content.find('span')
             a_tag = span_tag.find('a')
 
-            title_directory = a_tag.get('title')
+            directory_name = a_tag.text
             link_directory = a_tag.get('href')
 
-            print("Title: %s" % title_directory)
+            print("valor a: %s" % directory_name)
             print("href: %s" % link_directory)
 
             directory_html = get_html_page(link_directory)
 
-            node_child = Node(title_directory, parent=node_parent)
+            node_child = Node(directory_name, parent=node_parent)
             get_files(node_child, directory_html)
