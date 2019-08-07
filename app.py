@@ -1,5 +1,6 @@
-from webscraping.data.files import open_file, get_repositories
-from webscraping.data.webcrawler import execute_web_crawler
+from webscraping.processors.files import open_file, get_repositories
+from webscraping.processors.webcrawler import execute_web_crawler
+from webscraping.processors.repos_analyzer import analyze_repo
 
 
 def main():
@@ -7,7 +8,10 @@ def main():
     repositories = get_repositories("/home/rafael/python-projects/vivadecora/webscraping/resources/repositories.txt")
     print("Repositories size = %s" % len(repositories))
     for repo in repositories:
-        url_repository = execute_web_crawler(repo)
+        root = execute_web_crawler(repo)
+
+        analyze_repo(root)
+
     pass
 
 
