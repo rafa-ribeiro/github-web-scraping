@@ -2,6 +2,11 @@ from anytree import NodeMixin
 
 
 class FileNode(NodeMixin):
+    """
+        Estrutura utilizada para representar um Diretório ou Arquivo na árvore de estruturas de arquivos do repositório.
+
+        FileNode atua como um Node da lib anytree.
+    """
 
     def __init__(self, name, lines=None, size_bytes=None, parent=None, children=None):
         self.name = name

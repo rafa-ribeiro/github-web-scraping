@@ -3,6 +3,17 @@ from anytree import RenderTree
 
 
 def create_report(repository, node_structure, repo_metrics):
+    """
+    Cria e retorna uma String formatada contendo:
+    - Estrutura de pastas do repositório
+    - Tabela de métricas calculadas para o repositório.
+
+    :param repository: Identificador do repositório
+    :param node_structure: Estrutura do tipo Node para gerar a árvore de diretórios
+    :param repo_metrics: Estrutura contendo os dados extraídos do diretório para exibição no report
+    :return: String formatada para saída no report
+    """
+
     output = [
         "Repository: {}".format(repository),
         break_line(),

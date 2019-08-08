@@ -8,6 +8,12 @@ def open_file(file_path):
 
 
 def get_repositories_list(file_path):
+    """
+    Retorna uma lista de string contendo cada linha do arquivo lido.
+
+    :param file_path: Path do arquivo a ser lido.
+    :return: Lista de str contendo as linhas lidas.
+    """
     try:
         with open(file_path, "r") as file:
             return file.readlines()
@@ -16,6 +22,12 @@ def get_repositories_list(file_path):
 
 
 def write_file(file_path, content):
+    """
+    Escreve o conteúdo informado em disco.
+
+    :param file_path: Contendo diretório + nome do arquivo em que o arquivo gerado será colocado,
+    :param content: Conteúdo do arquivo a ser escrito.
+    """
     try:
         with open(file_path, "a+") as file:
             file.write(content)

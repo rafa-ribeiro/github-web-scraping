@@ -2,6 +2,9 @@ from anytree import PreOrderIter
 
 
 class RepoMetrics:
+    """
+    Classe agrupa os valores calculados para o Repositório e o conjuntos de estatísticas coletadas por arquivo.
+    """
 
     def __init__(self, total_lines_repo, total_bytes_repo, statistics):
         self.total_lines_repo = total_lines_repo
@@ -16,6 +19,9 @@ class RepoMetrics:
 
 
 class Statistic:
+    """
+    Representa os valores coletados para um arquivo do repositório.
+    """
 
     def __init__(self, extension, total_lines=0, total_bytes=0):
         self.extension = extension
@@ -24,6 +30,17 @@ class Statistic:
 
 
 def analyze_repo(root):
+    """
+    Em cima dos dados coletados do repositório, efetua:
+
+    - A consolidação de valores de quantidade de linhas e bytes por extensão do mesmo tipo.
+    - Somatório da quantidade de Linhas do repositório.
+    - Somatório da quantidade de Bytes do repositório.
+
+    :param root: Nó raiz do repositório
+    :return: Um objeto da classe RepoMetrics, contendo os valores calculados.
+    """
+
     extensions_dict = {}
     total_lines_repo = 0
     total_bytes_repo = 0

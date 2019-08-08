@@ -10,6 +10,13 @@ EXTENSIONS_BLACK_LIST = [".dat", ".png"]
 
 
 def is_valid_extension(file_name):
+    """
+    Valida que o arquivo é de uma extensão válida para o cálculo das métricas.
+
+    :param file_name: Nome ou path contendo a extensão do arquivo.
+    :return: True se for uma extensão válida, caso contrário False.
+    """
+
     for ext in EXTENSIONS_BLACK_LIST:
         if file_name.endswith(ext):
             return False
@@ -23,11 +30,17 @@ def execute_web_crawler(repository):
     root = FileNode(repository)
     get_files(root, html)
     end = time.time()
-    print("Execution time: %s seconds" % str(end-start))
+    print("Web scraping execution time: %s seconds" % str(end-start))
     return root
 
 
 def request_html_page(repository):
+    """
+    Executa uma GET request para obter as páginas HTML a partir do sufixo de URL do GitHub informada no parâmetro.
+
+    :param repository: Sufixo do link de acesso ao GitHub.
+    :return: Retorna a página HTML referente ao endereço informado.
+    """
     url_repository = get_url(repository)
     try:
         req = requests.get(url_repository)
@@ -38,10 +51,25 @@ def request_html_page(repository):
 
 
 def get_url(link_suffix):
+    """
+    Retorna o link completo para acessar as páginas do GitHub.
+
+    :param link_suffix: Sufixo de acesso às páginas do GitHub.
+    :return: URL completa.
+    """
     return "%s%s" % (github_prefix, link_suffix)
 
 
 def get_files(node_parent, html):
+    """
+    Efetua o web scraping na página coletando os dados necessários para acessar os diretórios e os arquivos do
+    repositório.
+
+    Esse método percorre os diretórios recursivamente e pára ao encontrar e processar um arquivo.
+
+    :param node_parent: Nó a partir do qual a leitura por diretórios/arquivos será efetuada.
+    :param html: Página HTML referente ao node_parent.
+    """
     print("Processing on %s" % node_parent.name)
     soup = BeautifulSoup(html, 'html.parser')
 
@@ -65,15 +93,33 @@ def get_files(node_parent, html):
 
 
 def extract_files(soup):
+    """
+    Extrai da página HTML o elemento tempo que contém a listagem de arquivos e diretórios.
+
+    :param soup: Recurso do BeautifulSoup que parseou o arquivo HTML.
+    :return: Componente <table> da página.
+    """
     return soup.find('table', attrs={'class': 'files'})
 
 
 def extract_rows(table_files_tag):
+    """
+    Extrai as linhas da <table> passada.
+
+    :param table_files_tag: Componente <table> do HTML
+    :return: Componente <tr> com os dados referentes ao diretório/arquivo.
+    """
     content_table = table_files_tag.find('tbody')
     return content_table.find_all('tr', attrs={'class': 'js-navigation-item'})
 
 
 def extract_dir_info(row_file):
+    """
+    Extrai o nome e o link de acesso do próximo diretório/arquivo a ser utilizado para extração.
+
+    :param row_file: Componente <tr> da tabela de listagem de arquivos/diretórios.
+    :return: dir_name com o nome do próximo recurso e dir_link_suffix contendo o link para acesso.
+    """
     td_content = row_file.find('td', attrs={'class': 'content'})
     span_tag = td_content.find('span')
     a_tag = span_tag.find('a')
@@ -83,7 +129,23 @@ def extract_dir_info(row_file):
 
 
 def extract_file_info_component(soup):
-    # file_mode = soup.find()
+    """
+    Extrai o componente 'file-info-divider' que separa as informações referente ao tamanho e quantidade de linhas do
+    arquivo.
+
+    TODO (rafael.ribeiro): Alterar a maneira de obter as informações do 'file-info-divider':
+
+    Estratégias:
+    1. Extrair somente o último dos 'file-info-divider's e usar o método 'previous' para obter a quantidade de linhas
+    e o '.next_sibling' para obter o tamanho e a unidade de medida. Warning: Arquivos de imagem continuam não sendo
+    processados adequadamente.
+
+    2. Mapear os tipos de extensão que possuem padrões de informações em template diferentes e criar extratores
+    específicos por extensão.
+
+    :param soup: Recurso do BeaultifulSoup que efetuou o parse do HTML.
+    :return: Componente <span> próximo às informações do arquivo.
+    """
     file_mode_span = soup.find('span', attrs={'class': 'file-mode'})
     if file_mode_span:
         file_mode_span.extract()
@@ -91,6 +153,16 @@ def extract_file_info_component(soup):
 
 
 def extract_file_info_details(file_info_details_component):
+    """
+    Extrai as informações referentes à quantidade de linhas e o tamanho dos arquivos do repositório.
+
+    TODO (rafael.ribeiro): A forma como obter essas informações pode (deve) ser alterada para manter a extração
+    dos dados mais padronizada, vide to do do método 'extract_file_info_component'
+
+    :param file_info_details_component: Componente <span> contendo o identificador 'file-info-divider' para localização
+    dos dados.
+    :return: Respectivamente, a quantidade de linhas, tamanho e a unidade de medida do arquivo obtidos.
+    """
     content_file_info_parent_container = file_info_details_component.find_previous().get_text()
     file_info = content_file_info_parent_container.replace("\n", "").strip()
     file_info = " ".join(file_info.split())
@@ -101,12 +173,26 @@ def extract_file_info_details(file_info_details_component):
     return lines_info, bytes_size, bytes_unity
 
 
-def convert_to_bytes(bytes_size, bytes_unity):
+def convert_to_bytes(any_bytes_size, bytes_unity):
+    """
+    Converte o valor informado para Bytes de acordo com a unidade de medida do mesmo.
+
+    :param any_bytes_size: Valor a ser convertido
+    :param bytes_unity: Unidade de Medida (Bytes, KB)
+    :return: Valor em Bytes
+    """
     unity_multiplier = get_multiplier(bytes_unity)
-    return float(bytes_size) * unity_multiplier
+    return float(any_bytes_size) * unity_multiplier
 
 
 def fill_file_node(file_node, lines_info, size_bytes):
+    """
+    Preenche o nó informado com os dados obtidos.
+
+    :param file_node: Nó do arquivo que foi coletada as informações.
+    :param lines_info: Quantidade de linhas do arquivo.
+    :param size_bytes: Tamanho do arquivo em Bytes.
+    """
     file_node.lines = lines_info
     file_node.size_bytes = size_bytes
 
