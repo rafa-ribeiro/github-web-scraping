@@ -52,7 +52,7 @@ def get_files(node_parent, html):
 
         for row in table_rows:
             dir_name, dir_link_suffix = extract_dir_info(row)
-            if is_valid_extension(node_parent.name):
+            if is_valid_extension(dir_link_suffix):
                 next_html_page = request_html_page(dir_link_suffix)
                 node_child = FileNode(dir_name, parent=node_parent)
                 get_files(node_child, next_html_page)
