@@ -9,15 +9,15 @@ O código se utiliza de técnicas de web scraping para efetuar a extração de d
 
 **Principais tecnologias e bibliotecas utilizadas**
 
-1. Python 3.7 - (3.7.0)
+1. Python 3.7 (3.7.0)
 2. Pipenv (version 2018.05.18)
 3. Virtualenv (16.7.2)
-4. Beautifulsoup4 (4.8.0)
+4. BeautifulSoup4 (4.8.0)
 5. Anytree (2.6.0) 
 
 ---
 
-*Funcionalidades*
+**Funcionalidades**
 1. Extração de páginas de repositórios públicos do GitHub usando web scraping.
 2. Extração e apresentação em arquivo da estrutura de pastas/arquivos do repositório.
 3. Extração, compilação e apresentação de informações do repositório, como:
