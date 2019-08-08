@@ -17,4 +17,4 @@ class FileNode(NodeMixin):
         return self.name
 
     def is_countable_file(self):
-        return self.lines and self.size_bytes
+        return self.lines is not None and self.size_bytes is not None

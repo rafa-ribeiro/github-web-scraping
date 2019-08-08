@@ -6,6 +6,15 @@ from webscraping.processors.bytes_utils import get_multiplier
 
 github_prefix = 'https://github.com/'
 
+EXTENSIONS_BLACK_LIST = [".dat", ".png"]
+
+
+def is_valid_extension(file_name):
+    for ext in EXTENSIONS_BLACK_LIST:
+        if file_name.endswith(ext):
+            return False
+    return True
+
 
 def execute_web_crawler(repository):
     start = time.time()
@@ -43,16 +52,16 @@ def get_files(node_parent, html):
 
         for row in table_rows:
             dir_name, dir_link_suffix = extract_dir_info(row)
-            next_html_page = request_html_page(dir_link_suffix)
-
-            node_child = FileNode(dir_name, parent=node_parent)
-            get_files(node_child, next_html_page)
+            if is_valid_extension(node_parent.name):
+                next_html_page = request_html_page(dir_link_suffix)
+                node_child = FileNode(dir_name, parent=node_parent)
+                get_files(node_child, next_html_page)
     else:
-        file_info_details_component = extract_file_info_component(soup)
-        if file_info_details_component:
-            lines_info, bytes_size, bytes_unity = extract_file_info_details(file_info_details_component)
-
-            fill_file_node(node_parent, int(lines_info), convert_to_bytes(bytes_size, bytes_unity))
+        if is_valid_extension(node_parent.name):
+            file_info_details_component = extract_file_info_component(soup)
+            if file_info_details_component:
+                lines_info, bytes_size, bytes_unity = extract_file_info_details(file_info_details_component)
+                fill_file_node(node_parent, int(lines_info), convert_to_bytes(bytes_size, bytes_unity))
 
 
 def extract_files(soup):
@@ -74,6 +83,10 @@ def extract_dir_info(row_file):
 
 
 def extract_file_info_component(soup):
+    # file_mode = soup.find()
+    file_mode_span = soup.find('span', attrs={'class': 'file-mode'})
+    if file_mode_span:
+        file_mode_span.extract()
     return soup.find('span', attrs={'class': 'file-info-divider'})
 
 

@@ -31,7 +31,7 @@ def analyze_repo(root):
 
     for node in PreOrderIter(root):
         if node.is_leaf:
-            if node.is_countable_file:
+            if node.is_countable_file():
                 total_lines_repo = total_lines_repo + node.lines
                 total_bytes_repo = total_bytes_repo + node.size_bytes
 
