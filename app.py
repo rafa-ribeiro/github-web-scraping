@@ -11,11 +11,12 @@ def main():
     repositories = get_repositories_list(repositories_path)
 
     for repo in repositories:
+        repo = repo.strip()
         root = execute_web_crawler(repo)
         repo_metrics = analyze_repo(root)
         report = create_report(repo, root, repo_metrics)
         report_file_name = "{}".format(repo.replace("/", "_"))
-        export_path = "{}{}".format(resources_path, report_file_name)
+        export_path = "{}{}.txt".format(resources_path, report_file_name)
         write_file(export_path, report)
 
 

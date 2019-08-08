@@ -1,0 +1,214 @@
+Repository: SambitAcharya/Mini-Projects
+
+Estrutura de pastas do repositório
+
+SambitAcharya/Mini-Projects
+├── JS
+│   ├── Chat Application
+│   │   ├── css
+│   │   │   └── style.css (128 linhas)
+│   │   ├── js
+│   │   │   └── script.js (32 linhas)
+│   │   └── index.html (40 linhas)
+│   ├── Image Upload
+│   │   ├── css
+│   │   │   └── style.css (11 linhas)
+│   │   ├── js
+│   │   │   └── script.js (26 linhas)
+│   │   ├── index.php (34 linhas)
+│   │   └── upload.php (25 linhas)
+│   ├── Keyboard Simulator
+│   │   ├── css
+│   │   │   └── style.css (83 linhas)
+│   │   ├── js
+│   │   │   ├── jquery.min.js (5 linhas)
+│   │   │   └── script.js (71 linhas)
+│   │   └── index.html (73 linhas)
+│   ├── Plot Chart
+│   │   ├── data.json (32 linhas)
+│   │   ├── index.html (13 linhas)
+│   │   └── script.js (20 linhas)
+│   ├── Random Name Picker
+│   │   ├── css
+│   │   │   └── style.css (39 linhas)
+│   │   ├── js
+│   │   │   └── script.js (68 linhas)
+│   │   └── index.html (39 linhas)
+│   └── Twitter Bot
+│       ├── actions
+│       │   ├── index.js (5 linhas)
+│       │   ├── like.js (36 linhas)
+│       │   └── retweet.js (36 linhas)
+│       ├── app.js (8 linhas)
+│       ├── config.js
+│       └── package.json (15 linhas)
+├── PHP
+│   ├── CurrencyConverter
+│   │   ├── CurrencyConverter.php (56 linhas)
+│   │   ├── CurrencyConverterInterface.php (8 linhas)
+│   │   ├── index.php (22 linhas)
+│   │   └── index.php~ (13 linhas)
+│   ├── IP Location
+│   │   ├── Geo.php (36 linhas)
+│   │   └── index.php (12 linhas)
+│   ├── QRCodeGenerator
+│   │   ├── vendor
+│   │   │   ├── composer
+│   │   │   │   ├── ClassLoader.php (388 linhas)
+│   │   │   │   ├── autoload_classmap.php (10 linhas)
+│   │   │   │   ├── autoload_namespaces.php (11 linhas)
+│   │   │   │   ├── autoload_psr4.php (10 linhas)
+│   │   │   │   ├── autoload_real.php (51 linhas)
+│   │   │   │   └── installed.json (55 linhas)
+│   │   │   ├── endroid/qrcode
+│   │   │   │   ├── assets
+│   │   │   │   │   ├── data
+│   │   │   │   │   └── image
+│   │   │   │   ├── src/Endroid/QrCode
+│   │   │   │   │   ├── Exceptions
+│   │   │   │   │   │   ├── DataDoesntExistsException.php (15 linhas)
+│   │   │   │   │   │   ├── ImageFunctionUnknownException.php (15 linhas)
+│   │   │   │   │   │   ├── ImageSizeTooLargeException.php (15 linhas)
+│   │   │   │   │   │   └── VersionTooLargeException.php (15 linhas)
+│   │   │   │   │   └── QrCode.php (1142 linhas)
+│   │   │   │   ├── tests/Endroid/Tests/QrCode
+│   │   │   │   │   └── QrCodeTest.php (33 linhas)
+│   │   │   │   ├── .gitignore (6 linhas)
+│   │   │   │   ├── .scrutinizer.yml (8 linhas)
+│   │   │   │   ├── .travis.yml (19 linhas)
+│   │   │   │   ├── LICENSE (19 linhas)
+│   │   │   │   ├── README.md (40 linhas)
+│   │   │   │   ├── composer.json (27 linhas)
+│   │   │   │   └── phpunit.xml.dist (15 linhas)
+│   │   │   └── autoload.php (8 linhas)
+│   │   ├── composer.json (5 linhas)
+│   │   ├── composer.lock (69 linhas)
+│   │   ├── index.html (11 linhas)
+│   │   └── qrcode.php (22 linhas)
+│   └── URL Shortener
+│       ├── classes
+│       │   └── Shortener.php (56 linhas)
+│       ├── css
+│       │   └── global.css (25 linhas)
+│       ├── .htaccess (2 linhas)
+│       ├── index.php (28 linhas)
+│       ├── redirect.php (15 linhas)
+│       └── shorten.php (19 linhas)
+├── Python
+│   ├── Anagrams In File
+│   │   ├── tmp/dict
+│   │   │   └── words.txt (41 linhas)
+│   │   └── script.py (75 linhas)
+│   ├── Bulk-Rename-Utility
+│   │   ├── createfiles.py (46 linhas)
+│   │   └── rename.py (69 linhas)
+│   ├── Collect The Articles
+│   │   └── collect.py (23 linhas)
+│   ├── Compare Reddit Karma
+│   │   └── karma.py (101 linhas)
+│   ├── Decode-The-SMS
+│   │   ├── abbreviations.txt (1400 linhas)
+│   │   ├── getdata.py (42 linhas)
+│   │   └── translate.py (85 linhas)
+│   ├── Dropbox Uploader
+│   │   ├── sample_file_to_upload.txt (2 linhas)
+│   │   └── upload.py (52 linhas)
+│   ├── Extracting Data From PDF
+│   │   ├── extract.py (36 linhas)
+│   │   └── table-1.10.pdf
+│   ├── Find-Me-A-Restaurant
+│   │   └── restaurant.py (45 linhas)
+│   ├── Github Mining
+│   │   ├── newFile.csv (10 linhas)
+│   │   └── pygit.py (107 linhas)
+│   ├── Hindi Data
+│   │   ├── S24A276P001.txt (14150 linhas)
+│   │   ├── examplefile.txt (2 linhas)
+│   │   ├── script.py (45 linhas)
+│   │   ├── socialcops.pdf
+│   │   ├── socialcops.txt (1 linhas)
+│   │   └── socialcops2.txt (1 linhas)
+│   ├── Image Recognition With Python
+│   │   ├── images
+│   │   │   └── numbers
+│   │   ├── errors.txt (6 linhas)
+│   │   ├── errors.txt~
+│   │   └── imagerec.py (57 linhas)
+│   ├── LinkedIn Mining
+│   │   └── linked.py (36 linhas)
+│   ├── Linkedin Company Directory
+│   │   ├── approach.md (72 linhas)
+│   │   ├── companies.txt
+│   │   ├── companies2.txt
+│   │   └── scrapecompany.py (101 linhas)
+│   ├── Matplotlib
+│   │   ├── examplefile.csv (21 linhas)
+│   │   ├── plot.py (153 linhas)
+│   │   ├── sampledata.txt (10 linhas)
+│   │   └── sampledata2.txt (12 linhas)
+│   ├── Message-Encryption-And-Decryption
+│   │   ├── decryption.py (39 linhas)
+│   │   ├── encryption.py (69 linhas)
+│   │   ├── key.txt (2 linhas)
+│   │   └── message.txt (3 linhas)
+│   ├── Phrase Frequency Counter
+│   │   └── phrasecounter.py (153 linhas)
+│   ├── Random Entry Selection From CSV
+│   │   ├── choices.csv (4 linhas)
+│   │   └── random_choice.py (54 linhas)
+│   ├── Random Password Generator
+│   │   ├── RandomPasswordGenerator.py (67 linhas)
+│   │   ├── words.txt (21 linhas)
+│   │   └── xkcdpassword.py (35 linhas)
+│   ├── Scrape Euler
+│   │   ├── Min_25.jpg
+│   │   ├── approach.md (65 linhas)
+│   │   ├── out.txt (6 linhas)
+│   │   └── scraper.py (54 linhas)
+│   ├── Search Engine
+│   │   └── crawl.py (73 linhas)
+│   ├── Stream-Tweets
+│   │   └── stream.py (60 linhas)
+│   ├── Tkinter Application
+│   │   ├── .Tkinter.py.swp
+│   │   └── tkinter1.py (6 linhas)
+│   ├── Trend Search
+│   │   └── searchtrend.py (61 linhas)
+│   ├── Try Pandas
+│   │   └── script.py (2 linhas)
+│   ├── Tweet Using Python
+│   │   ├── constants.py (5 linhas)
+│   │   ├── constants.pyc
+│   │   └── tweet.py (20 linhas)
+│   ├── Tweet Without Limits
+│   │   └── twtwlmts.py (100 linhas)
+│   ├── Web Crawler
+│   │   └── webcrawler.py (95 linhas)
+│   └── Web-Login
+│       └── loginrequests.py (8 linhas)
+└── README.md (171 linhas)
+
+
+Métricas por extensão de arquivos
+
+-------------------------------------------------------------------------------
+|Extensão                 |Linhas                   |Bytes                    |
+-------------------------------------------------------------------------------
+|css                      |286 (1.35 %)             |4385.000000 (0.48 %)     |
+|js                       |307 (1.45 %)             |100680.000000 (11.03 %)  |
+|html                     |176 (0.83 %)             |6129.000000 (0.67 %)     |
+|php                      |2046 (9.69 %)            |55715.000000 (6.10 %)    |
+|json                     |134 (0.63 %)             |2800.000000 (0.31 %)     |
+|php~                     |13 (0.06 %)              |234.000000 (0.03 %)      |
+|gitignore                |6 (0.03 %)               |55.000000 (0.01 %)       |
+|yml                      |27 (0.13 %)              |414.000000 (0.05 %)      |
+|Outros                   |19 (0.09 %)              |1040.000000 (0.11 %)     |
+|md                       |348 (1.65 %)             |14770.000000 (1.62 %)    |
+|dist                     |15 (0.07 %)              |413.000000 (0.05 %)      |
+|lock                     |69 (0.33 %)              |2110.000000 (0.23 %)     |
+|htaccess                 |2 (0.01 %)               |63.000000 (0.01 %)       |
+|txt                      |15657 (74.15 %)          |661864.000000 (72.48 %)  |
+|py                       |1974 (9.35 %)            |61658.000000 (6.75 %)    |
+|csv                      |35 (0.17 %)              |817.000000 (0.09 %)      |
+|txt~                     |0 (0.00 %)               |0.000000 (0.00 %)        |
+-------------------------------------------------------------------------------
