@@ -1,4 +1,4 @@
-**GitHub Web Scraping**
+### GitHub Web Scraping
 
 Projeto para extração de dados de repositórios públicos contidos no GitHub.
 O código se utiliza de técnicas de web scraping para efetuar a extração de dados de páginas html dos projetos do GitHub.
