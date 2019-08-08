@@ -1,7 +1,7 @@
-from anytree import NodeMixin, RenderTree
+from anytree import NodeMixin
 
 
-class MyNode(NodeMixin):
+class FileNode(NodeMixin):
 
     def __init__(self, name, lines=None, size_bytes=None, parent=None, children=None):
         self.name = name
@@ -15,3 +15,6 @@ class MyNode(NodeMixin):
         if self.lines:
             return "%s (%s linhas)" % (self.name, self.lines)
         return self.name
+
+    def is_countable_file(self):
+        return self.lines and self.size_bytes
