@@ -3,12 +3,6 @@
 Projeto para extração de dados de repositórios públicos contidos no GitHub.
 O código se utiliza de técnicas de web scraping para efetuar a extração de dados de páginas html dos projetos do GitHub.
 
-*Até o momento projeto efetua a extração dos seguintes dados:*
-1. Estrutura de pastas e arquivos.
-2. Quantidade de linhas dos arquivos.
-3. Volume em Bytes dos arquivos.
-
-
 *Autor: Rafael Ribeiro*
 
 ---
