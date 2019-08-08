@@ -24,6 +24,18 @@ def is_valid_extension(file_name):
 
 
 def execute_web_crawler(repository):
+    """
+    Executa o web scraping no repositório informado.
+
+    TODO (rafael.ribeiro):
+    - Refatorar de modo que as GET Requests que não possuem dependência entre sí possam ser feitas de forma assíncrona.
+    Isso pode ser feito, por exemplo, para toda a listagem de arquivos/diretório que são filhos de um mesmo 'nó'
+    na estrutura de pastas. *** Uma possibilidade é o uso da lib Scrapy (https://scrapy.org/)
+
+    :param repository: Repositório que será efetuado o web scraping.
+    :return: Nó raiz da estrutura de arquivos/diretórios em que foi iniciado o scraping.
+    """
+
     start = time.time()
     print("Executing web crawler on page %s" % repository)
     html = request_html_page(repository)
