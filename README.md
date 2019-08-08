@@ -39,11 +39,11 @@ Repositório: https://github.com/rafa-ribeiro/github-web-scraping
         $ pipenv install
     </code> 
     
-* Com as dependências devidamentes instaladas, para execução do projeto, é necessário mover o arquivo de listagem dos repositórios para o seguinte diretório:
+* Com as dependências devidamente instaladas, para execução do projeto, é necessário mover o arquivo de listagem dos repositórios para o seguinte diretório:
     
     <PATH_PROJETO>/webscraping/resources/repositories.txt
 
-Obs: O nome do arquivo deve ser 'repositories.txt'
+*Obs: O nome do arquivo deve ser 'repositories.txt'*
 
 * Para execução, entrar na pasta do projeto e utilizar o comando:
     
@@ -53,7 +53,7 @@ Obs: O nome do arquivo deve ser 'repositories.txt'
     
 * Após a execução finalizada, os arquivos gerados estarão armazenados em:
 
-    <PATH_PROJETO>/webscraping/resources/<DONO_REPO>_<NOME_REPO>
+    <PATH_PROJETO>/webscraping/resources/<DONO_REPO>_<NOME_REPO>.txt
    
    
 * Na pasta <PATH_PROJETO>/webscraping/resources/, há exemplo do arquivo de entrada de repositórios e exemplos dos 
