@@ -29,7 +29,7 @@ def write_file(file_path, content):
     :param content: Conteúdo do arquivo a ser escrito.
     """
     try:
-        with open(file_path, "a+") as file:
+        with open(file_path, "a+", encoding="utf-8") as file:
             file.write(content)
         print("Arquivo gerado com sucesso em {}".format(file_path))
     except Exception as e:

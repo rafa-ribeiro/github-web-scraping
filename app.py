@@ -6,8 +6,8 @@ from webscraping.processors.report_creator import create_report
 
 
 def main():
-    resources_path = "%s%s" % (os.getcwd(), "/webscraping/resources/")
-    repositories_path = "%s%s" % (resources_path, "repositories.txt")
+    resources_path = os.path.join(os.getcwd(), "webscraping", "resources")
+    repositories_path = os.path.join(resources_path, "repositories.txt")
     repositories = get_repositories_list(repositories_path)
 
     for repo in repositories:
@@ -16,7 +16,7 @@ def main():
         repo_metrics = analyze_repo(root)
         report = create_report(repo, root, repo_metrics)
         report_file_name = "{}".format(repo.replace("/", "_"))
-        export_path = "{}{}.txt".format(resources_path, report_file_name)
+        export_path = "{}.txt".format(os.path.join(resources_path, report_file_name))
         write_file(export_path, report)
 
 
