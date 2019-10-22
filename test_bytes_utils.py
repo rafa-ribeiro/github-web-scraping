@@ -10,5 +10,3 @@ class TestBytesUtils(unittest.TestCase):
     def test_kb(self):
         self.assertEqual(get_multiplier("KB"), 1000, "Should be 1000")
 
-if __name__ == '__main__':
-    unittest.main()
