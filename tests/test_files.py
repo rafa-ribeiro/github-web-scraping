@@ -15,6 +15,3 @@ class TestFiles(unittest.TestCase):
     def test_fail(self):
         path_name = os.path.join(os.getcwd(), "test_file.txt")
         self.assertRaises(Exception, open_file, path_name)
-
-if __name__ == '__main__':
-    unittest.main()
