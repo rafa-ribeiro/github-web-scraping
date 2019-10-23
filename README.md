@@ -70,3 +70,10 @@ Para isso, uma possibilidade é a utilização da biblioteca Scrapy, acessível 
 2. Teste unitário.
 
     Desenvolvimento de testes de unidade para garantir a assertividade da aplicação na extração de informações do GitHub.
+	
+	Os testes unitários existentes estão agrupadas na pasta *tests*. Pode-se utilziar o seguinte comando para executá-los:
+	
+	<code>
+        $ python -m nose2
+    </code> 
+	
